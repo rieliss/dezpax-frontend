@@ -11,14 +11,16 @@ export default {
       { name: "format-detection", content: "telephone=no" },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
-    axios: {
-      baseURL: "http://localhost:3000/api",
-    },
   },
-  css: [],
-  plugins: [],
+  css: ["bootstrap/dist/css/bootstrap.css"],
+  plugins: [{ src: "~/plugins/bootstrap.js", mode: "client" }],
   components: true,
   buildModules: ["@nuxt/typescript-build"],
-  modules: ["bootstrap-vue/nuxt"],
-  build: {},
+  modules: ["bootstrap-vue/nuxt", "@nuxtjs/axios"],
+  axios: {
+    baseURL: "http://localhost:3000",
+  },
+  build: {
+    transpile: ["bootstrap"],
+  },
 };
